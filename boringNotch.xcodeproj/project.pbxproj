@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		022121BF5E00E2CD56FB5F57 /* IslandModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA92C3CBA90E0BA2814075 /* IslandModule.swift */; };
+		047103032D850EAC1164F24D /* IslandModuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A34B77CA0E7A688B79E2F9 /* IslandModuleConfig.swift */; };
+		04B4839CEC659C314DF5D665 /* UserDefaultsCustomizationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF1AC378C1E9A8D7B8AE88 /* UserDefaultsCustomizationStore.swift */; };
+		059D6434A6B2BDC61B611EB4 /* IslandModuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A34B77CA0E7A688B79E2F9 /* IslandModuleConfig.swift */; };
+		0C1B2628E5DBD03180B13CD5 /* IslandEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC0BB463CD3DE24E4FC071 /* IslandEvent.swift */; };
+		0F8E9E90BB1FC42D893BB6BB /* IslandStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7908AFBF233647652AA96 /* IslandStateMapper.swift */; };
 		1100290C2E847E2800035A57 /* NSItemProvider+LoadHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1100290B2E847E2800035A57 /* NSItemProvider+LoadHelpers.swift */; };
 		110029272E84FD4C00035A57 /* TemporaryFileStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110029262E84FD4C00035A57 /* TemporaryFileStorageService.swift */; };
 		1100292A2E8691B400035A57 /* FileShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 110029292E8691B400035A57 /* FileShareView.swift */; };
@@ -40,10 +46,12 @@
 		1153BD9C2D98853B00979FB0 /* NowPlayingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153BD9B2D98853B00979FB0 /* NowPlayingController.swift */; };
 		1153BDA72D99B22200979FB0 /* YouTubeMusicController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1153BDA62D99B22200979FB0 /* YouTubeMusicController.swift */; };
 		115C12EC2ED3D003009754CA /* OpenNotchHUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115C12EB2ED3D003009754CA /* OpenNotchHUD.swift */; };
+		11602EE4C4832007777234C1 /* ShelfItemRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6491FAAFB8577510DC90F45D /* ShelfItemRecord.swift */; };
 		1160F8D82DD98230006FBB94 /* NotchShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1160F8D72DD98230006FBB94 /* NotchShape.swift */; };
 		1163988D2DF5CAB40052E6AF /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163988C2DF5CAB40052E6AF /* EventModel.swift */; };
 		1163988F2DF5CC870052E6AF /* CalendarModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1163988E2DF5CC870052E6AF /* CalendarModel.swift */; };
 		116398962DF5D6C00052E6AF /* CalendarServiceProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 116398952DF5D6C00052E6AF /* CalendarServiceProviding.swift */; };
+		1175EBCB9A55690D81D8C1DB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE40BC9CA91C1710FC162D0 /* Foundation.framework */; };
 		117AB5172E30E09C00558921 /* MediaRemoteAdapter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 112B0EBA2E30DD5000562D6C /* MediaRemoteAdapter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		118D1FD12E98FF5F00A2FF63 /* SharingStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118D1FD02E98FF5F00A2FF63 /* SharingStateManager.swift */; };
 		118EBE252E92DCCB00D54B5A /* AssociatedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 118EBE242E92DCCB00D54B5A /* AssociatedObject.swift */; };
@@ -74,6 +82,7 @@
 		11F748732EC9DA9300F841DB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 11F748722EC9DA9300F841DB /* Lottie */; };
 		11F748822ECB07A400F841DB /* MusicControlButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F748812ECB07A400F841DB /* MusicControlButton.swift */; };
 		11F748842ECB27DC00F841DB /* MusicSlotConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11F748832ECB27DC00F841DB /* MusicSlotConfigurationView.swift */; };
+		1392AF15EAFC63AB324859C1 /* IslandRuntimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8D4802ABD2EEF46164F660 /* IslandRuntimeController.swift */; };
 		14288DDC2C6E015000B9F80C /* AudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14288DD62C6E015000B9F80C /* AudioPlayer.swift */; };
 		14288DE82C6E01C800B9F80C /* ProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14288DE72C6E01C800B9F80C /* ProgressIndicator.swift */; };
 		14288E0C2C6F8EC000B9F80C /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14288E0B2C6F8EC000B9F80C /* AppIcons.swift */; };
@@ -106,15 +115,62 @@
 		14E9FEAA2C70BF610062E83F /* DownloadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9FEA92C70BF610062E83F /* DownloadView.swift */; };
 		14E9FEAE2C7325770062E83F /* Button+Bouncing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E9FEAD2C7325770062E83F /* Button+Bouncing.swift */; };
 		14FC6E502C7DED5600C7BEA5 /* DataTypes+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14FC6E4F2C7DED5600C7BEA5 /* DataTypes+Extensions.swift */; };
+		1F09B0A8C1B0FA04687B0840 /* ShelfItemRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6491FAAFB8577510DC90F45D /* ShelfItemRecord.swift */; };
+		284E0FA427F2C13D3474AC10 /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 882D8310CC5C5D3F598E1829 /* RootView.swift */; };
+		287E20C2BA3F1BEDCE4AEF13 /* ShelfFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E45FDAF766162E7A3006758 /* ShelfFeatureView.swift */; };
+		2C3C65365B969B0189A5F7A8 /* IslandModuleConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A34B77CA0E7A688B79E2F9 /* IslandModuleConfig.swift */; };
+		2D788D93484D4486365CF438 /* AppGroupIslandStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C714660C2DFE6448BB85738 /* AppGroupIslandStateStore.swift */; };
+		2DAC5F9C6F26826D1133CD7C /* IslandPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D8CDD18A58F718A459689F /* IslandPreset.swift */; };
+		300DC6B722DA1A40EE63DCD0 /* boringNotchShare.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2ED473FA335FA8E0BE1DD96F /* boringNotchShare.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		33BA6D62A964CB15394FFA69 /* IslandBehaviorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25FBC7C8B80668A4F6F5AD /* IslandBehaviorConfig.swift */; };
+		3553FF1CEB1BBB758ACB0AE6 /* CustomizationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E4C41C95E25027B4A387C3 /* CustomizationStore.swift */; };
+		3BE9862401D5C99D7E63488E /* IslandAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B495D59B9842D886F7DA53 /* IslandAttributes.swift */; };
+		3F2100068536A4D3DD46AB7E /* CapabilityMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055892A92D4E41F2D134313 /* CapabilityMatrix.swift */; };
+		4089FC60BDFD0097C2561AAE /* CapabilityMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055892A92D4E41F2D134313 /* CapabilityMatrix.swift */; };
+		4181B372C0E53303732231C8 /* CalendarFeatureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A96BB349C4F5FBA8C29BD4 /* CalendarFeatureView.swift */; };
+		493E8202ED25F1C093632292 /* IslandAppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A55BC93F1A5468D32D4ACE /* IslandAppGroup.swift */; };
+		4A3E90933CBD5F4DBD9EA490 /* IslandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F9517354B5525DDD4413E /* IslandTheme.swift */; };
+		500FF88CF5EC7DC70C44CF49 /* CustomizationDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC0E92C6DC6DC9C17D29B /* CustomizationDefaultsKeys.swift */; };
 		507266DB2C908E2E00A2D00D /* HoverButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 507266DA2C908E2E00A2D00D /* HoverButton.swift */; };
+		573799455816166F49BDAF23 /* IslandAppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A55BC93F1A5468D32D4ACE /* IslandAppGroup.swift */; };
 		5917FD112E57891600E87F1C /* MediaKeyInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5917FD102E57891600E87F1C /* MediaKeyInterceptor.swift */; };
 		5955950D2E900ED800C66711 /* ApplicationRelauncher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5955950C2E900ED800C66711 /* ApplicationRelauncher.swift */; };
 		59D8C23C2E589FAA00147B33 /* VolumeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 59D8C23B2E589FAA00147B33 /* VolumeManager.swift */; };
+		60E90C635F254475C0CC7A16 /* IslandStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7908AFBF233647652AA96 /* IslandStateMapper.swift */; };
+		69E49C58A2A1520368CA3435 /* CapabilityMatrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1055892A92D4E41F2D134313 /* CapabilityMatrix.swift */; };
+		6BEC21A685363DDCFA74BFC5 /* IslandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F9517354B5525DDD4413E /* IslandTheme.swift */; };
+		6EFF4C56C5665BF1D6873A51 /* IslandBehaviorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25FBC7C8B80668A4F6F5AD /* IslandBehaviorConfig.swift */; };
+		6FFB96CE75C0D32DF3CD07F1 /* IslandAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B495D59B9842D886F7DA53 /* IslandAttributes.swift */; };
+		71B79B2DE51232CC14251185 /* IslandTheme+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1576850D5701EC3CE63F5 /* IslandTheme+SwiftUI.swift */; };
+		73399CE06476FF60C64368E2 /* IslandActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCB4563AD767F94545EB28 /* IslandActivityManager.swift */; };
+		73423ACC3DFB225E43BE1DDE /* IslandTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2F9517354B5525DDD4413E /* IslandTheme.swift */; };
+		7452DC72E71AF47551D8EB76 /* IslandAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B495D59B9842D886F7DA53 /* IslandAttributes.swift */; };
+		777DB6DBEE63C24277CB592C /* IslandRuntimeStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58804A1C5011459A2366C841 /* IslandRuntimeStore.swift */; };
+		78EF6EDAC8931A29CC2CE6AA /* IslandRuntimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8D4802ABD2EEF46164F660 /* IslandRuntimeController.swift */; };
+		7B8A5655AE79886F4CCB7AA2 /* ShelfProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4817B7B9FE6DE59B2B9144FD /* ShelfProvider.swift */; };
+		7BB0E70AD26B2C1A977F8A99 /* IslandModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA92C3CBA90E0BA2814075 /* IslandModule.swift */; };
+		7C63DE023B7BB60F88BF29E9 /* AppGroupShelfStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB28EC5817710BB01936B75 /* AppGroupShelfStore.swift */; };
+		7CB4DD20CA84FE796C64530B /* IslandTheme+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1576850D5701EC3CE63F5 /* IslandTheme+SwiftUI.swift */; };
+		812C2042AF8D395481BBF96E /* PresetMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983D8B1FD0522A18A9FE26C /* PresetMigrator.swift */; };
+		8398DBC954AFAB5C81BE4DB1 /* IslandRuntimeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D8D4802ABD2EEF46164F660 /* IslandRuntimeController.swift */; };
+		88D5889C0F87B9617960BF69 /* IslandPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D8CDD18A58F718A459689F /* IslandPreset.swift */; };
+		8BC15FA95EFBE4B9B688153A /* IslandTheme+SwiftUI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C0C1576850D5701EC3CE63F5 /* IslandTheme+SwiftUI.swift */; };
+		8DFA1C0E1546FF91368A1734 /* IslandBehaviorConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A25FBC7C8B80668A4F6F5AD /* IslandBehaviorConfig.swift */; };
+		935F114E7218F07ADB2AF7AB /* AppGroupShelfStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB28EC5817710BB01936B75 /* AppGroupShelfStore.swift */; };
+		96490E813D33253B461AEEA1 /* CustomizationDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC0E92C6DC6DC9C17D29B /* CustomizationDefaultsKeys.swift */; };
+		992FFF644FC8D8DDB3748DD7 /* CustomizationSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB04945DFA0B73B4EE473F3 /* CustomizationSettingsView.swift */; };
 		9A0887322C7A693000C160EA /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0887312C7A693000C160EA /* TabButton.swift */; };
 		9A0887352C7AFF8E00C160EA /* TabSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A0887342C7AFF8E00C160EA /* TabSelectionView.swift */; };
 		9A987A0D2C73CA66005CA465 /* ShelfView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A987A032C73CA66005CA465 /* ShelfView.swift */; };
 		9A987A102C73CA8D005CA465 /* Collections in Frameworks */ = {isa = PBXBuildFile; productRef = 9A987A0F2C73CA8D005CA465 /* Collections */; };
 		9AB0C6BD2C73C9CB00F7CD30 /* NotchHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB0C6BB2C73C9CB00F7CD30 /* NotchHomeView.swift */; };
+		9C618DFCA667985907E9C6CC /* BatteryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC375F5675820D86BF7FFC82 /* BatteryProvider.swift */; };
+		9D5828DF74F548B1BF19D539 /* IslandContentState+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6427F59D4529D5733537C5 /* IslandContentState+Presentation.swift */; };
+		A1180E8B2476E2FEA74041C1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE40BC9CA91C1710FC162D0 /* Foundation.framework */; };
+		A40806F47DDE889FBA583E24 /* IslandEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC0BB463CD3DE24E4FC071 /* IslandEvent.swift */; };
+		AB038570922AC139D451717F /* IslandAppGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A55BC93F1A5468D32D4ACE /* IslandAppGroup.swift */; };
+		AFF1F01DD9735FD6DAC9661A /* boringNotchIslandWidget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = CCAE32A3D3C864CDDB493905 /* boringNotchIslandWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		B02F8A3508352DC886477942 /* AppGroupIslandStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C714660C2DFE6448BB85738 /* AppGroupIslandStateStore.swift */; };
 		B10348D92C74E56000475897 /* ConditionalModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10348D82C74E56000475897 /* ConditionalModifier.swift */; };
 		B10F84A32C6C9596009F3026 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10F84A22C6C9596009F3026 /* TestView.swift */; };
 		B141C2412CA5F53F00AC8CC8 /* SparkleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B141C2402CA5F53E00AC8CC8 /* SparkleView.swift */; };
@@ -135,6 +191,7 @@
 		B1C448982C972CC4001F0858 /* ListItemPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C448972C972CC4001F0858 /* ListItemPopover.swift */; };
 		B1C4489B2C97376A001F0858 /* TipStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C4489A2C97376A001F0858 /* TipStore.swift */; };
 		B1C974342C642B6D0000E707 /* MarqueeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1C974332C642B6D0000E707 /* MarqueeTextView.swift */; };
+		B1CAF303C23FD82D9D2CCA85 /* ShelfItemRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6491FAAFB8577510DC90F45D /* ShelfItemRecord.swift */; };
 		B1CE8CFE2C6F659400DD9871 /* KeyboardShortcutsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CE8CFD2C6F659400DD9871 /* KeyboardShortcutsHelper.swift */; };
 		B1D365CE2C6A979C0047BDBC /* LiveActivityModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D365CD2C6A979C0047BDBC /* LiveActivityModifier.swift */; };
 		B1D365D02C6A9A6C0047BDBC /* SystemEventIndicatorModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D365CF2C6A9A6C0047BDBC /* SystemEventIndicatorModifier.swift */; };
@@ -142,7 +199,36 @@
 		B1F0A0022E60000100000001 /* BrightnessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F0A0012E60000100000001 /* BrightnessManager.swift */; };
 		B1F747F92EC7E94000F841DB /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F747F82EC7E94000F841DB /* LottieView.swift */; };
 		B1FEB4992C7686630066EBBC /* PanGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FEB4982C7686630066EBBC /* PanGesture.swift */; };
+		B31736F287D91B3282513334 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A717A360BA1C08188A2E9A9 /* ShareViewController.swift */; };
+		B5B9AC9CC35862B53A227C12 /* IslandLiveActivityWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 868C3FD48ECC4B62177FA9A0 /* IslandLiveActivityWidget.swift */; };
+		B9967878E444B8B01F3EBE05 /* PresetDocument.swift in Sources */ = {isa = PBXBuildFile; fileRef = B56999AEB9A6B15E5A257347 /* PresetDocument.swift */; };
+		BAD50A02D07C375A9A9BFFAD /* boringNotchIslandWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C33703AE0554598890DA3B27 /* boringNotchIslandWidgetBundle.swift */; };
+		BCA26FD27ED5F1F8C7AC2CC0 /* IslandStateMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09F7908AFBF233647652AA96 /* IslandStateMapper.swift */; };
+		BCCF0DCFA2D47886E5BFDD08 /* CustomizationDefaultsKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 357FC0E92C6DC6DC9C17D29B /* CustomizationDefaultsKeys.swift */; };
+		BCCF86758F0AE2F07568FBAD /* MediaProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CEB2CD8DF5F8B6B5E130D03 /* MediaProvider.swift */; };
+		C307476D0E44C51D2BF4E30A /* BoringNotchiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BDD33DAF2FBD6E95BDA6B4 /* BoringNotchiOSApp.swift */; };
+		C45570D7DC43C41740A15B27 /* UserDefaultsCustomizationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF1AC378C1E9A8D7B8AE88 /* UserDefaultsCustomizationStore.swift */; };
+		CBBE679DD767E0D8AEB5A3D0 /* IslandEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC0BB463CD3DE24E4FC071 /* IslandEvent.swift */; };
+		CCC7BC9901CBA266BCCC5741 /* IslandModule.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DCA92C3CBA90E0BA2814075 /* IslandModule.swift */; };
+		D2159465D3E4D8B52B928772 /* IslandContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A8EB8347053646CE68AD /* IslandContentState.swift */; };
+		D9269D2CF14A31C4CCBB03B4 /* IslandControlPanelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDB0CDB83A58AFEB4F0B254C /* IslandControlPanelView.swift */; };
+		D9978C7284ECDCF7D9901169 /* IslandActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCB4563AD767F94545EB28 /* IslandActivityManager.swift */; };
+		DBB786941D17D369B5D49C6E /* PresetMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983D8B1FD0522A18A9FE26C /* PresetMigrator.swift */; };
+		DE87756D8C60257D6CF84E61 /* CustomizationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E4C41C95E25027B4A387C3 /* CustomizationStore.swift */; };
+		DEDF4BF2908256797D0F0C9C /* IslandContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A8EB8347053646CE68AD /* IslandContentState.swift */; };
+		DFBC0DADBBB1DB695B7155FC /* AppGroupIslandStateStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C714660C2DFE6448BB85738 /* AppGroupIslandStateStore.swift */; };
+		DFF63AC0BAD267BC6493AE40 /* IslandContentState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A6A8EB8347053646CE68AD /* IslandContentState.swift */; };
+		E0B57233A15AA0A1AD57A6AD /* IslandActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98FCB4563AD767F94545EB28 /* IslandActivityManager.swift */; };
+		E17C3B2B04BBD733EF7FC088 /* AppGroupShelfStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB28EC5817710BB01936B75 /* AppGroupShelfStore.swift */; };
+		E1E96DB47D94EAE948B53332 /* IslandContentState+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6427F59D4529D5733537C5 /* IslandContentState+Presentation.swift */; };
+		E509517AFBCB060E8D5082FC /* PresetMigrator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7983D8B1FD0522A18A9FE26C /* PresetMigrator.swift */; };
+		E853A22878EF5268B282C43E /* CustomizationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0E4C41C95E25027B4A387C3 /* CustomizationStore.swift */; };
+		E90BC0ED09ABD90944556749 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE40BC9CA91C1710FC162D0 /* Foundation.framework */; };
 		F38DE6482D8243E7008B5C6D /* BatteryActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38DE6472D8243E2008B5C6D /* BatteryActivityManager.swift */; };
+		F650C5720560ED8DB58FB834 /* CalendarProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A278A45C484B0A203AF2B97 /* CalendarProvider.swift */; };
+		F7A92F825339773192CA8F4B /* IslandPreset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D8CDD18A58F718A459689F /* IslandPreset.swift */; };
+		F9803B8656A8ABD7C45ACE0A /* UserDefaultsCustomizationStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AEF1AC378C1E9A8D7B8AE88 /* UserDefaultsCustomizationStore.swift */; };
+		FF377D1194931D6BE7420FA8 /* IslandContentState+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6427F59D4529D5733537C5 /* IslandContentState+Presentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +238,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 11F7484E2EC9AABA00F841DB;
 			remoteInfo = BoringNotchXPCHelper;
+		};
+		B927F8E2C3C1427D2537BE90 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14CEF40A2C5CAED200855D72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 89C864E982455AEBFA706226;
+			remoteInfo = boringNotchShare;
+		};
+		D0BFB401139FECB6AF783550 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 14CEF40A2C5CAED200855D72 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0709C805AE351752B32E0A7E;
+			remoteInfo = boringNotchIslandWidget;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -165,6 +265,18 @@
 				11F7485B2EC9AABA00F841DB /* BoringNotchXPCHelper.xpc in Embed XPC Services */,
 			);
 			name = "Embed XPC Services";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5ED2064F248A2DF2F05793C0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				AFF1F01DD9735FD6DAC9661A /* boringNotchIslandWidget.appex in Embed App Extensions */,
+				300DC6B722DA1A40EE63DCD0 /* boringNotchShare.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B1ECFA062C6FE58A002ACD87 /* Embed Frameworks */ = {
@@ -181,6 +293,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00BDD33DAF2FBD6E95BDA6B4 /* BoringNotchiOSApp.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BoringNotchiOSApp.swift; sourceTree = "<group>"; };
+		09B495D59B9842D886F7DA53 /* IslandAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandAttributes.swift; sourceTree = "<group>"; };
+		09F7908AFBF233647652AA96 /* IslandStateMapper.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandStateMapper.swift; sourceTree = "<group>"; };
+		0A25FBC7C8B80668A4F6F5AD /* IslandBehaviorConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandBehaviorConfig.swift; sourceTree = "<group>"; };
+		1055892A92D4E41F2D134313 /* CapabilityMatrix.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CapabilityMatrix.swift; sourceTree = "<group>"; };
 		1100290B2E847E2800035A57 /* NSItemProvider+LoadHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSItemProvider+LoadHelpers.swift"; sourceTree = "<group>"; };
 		110029262E84FD4C00035A57 /* TemporaryFileStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemporaryFileStorageService.swift; sourceTree = "<group>"; };
 		110029292E8691B400035A57 /* FileShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileShareView.swift; sourceTree = "<group>"; };
@@ -276,14 +393,45 @@
 		14E9FEA92C70BF610062E83F /* DownloadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadView.swift; sourceTree = "<group>"; };
 		14E9FEAD2C7325770062E83F /* Button+Bouncing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+Bouncing.swift"; sourceTree = "<group>"; };
 		14FC6E4F2C7DED5600C7BEA5 /* DataTypes+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataTypes+Extensions.swift"; sourceTree = "<group>"; };
+		1AEF1AC378C1E9A8D7B8AE88 /* UserDefaultsCustomizationStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UserDefaultsCustomizationStore.swift; sourceTree = "<group>"; };
+		21A34B77CA0E7A688B79E2F9 /* IslandModuleConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandModuleConfig.swift; sourceTree = "<group>"; };
+		27A6A8EB8347053646CE68AD /* IslandContentState.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandContentState.swift; sourceTree = "<group>"; };
+		2BAC0BB463CD3DE24E4FC071 /* IslandEvent.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandEvent.swift; sourceTree = "<group>"; };
+		2DCA92C3CBA90E0BA2814075 /* IslandModule.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandModule.swift; sourceTree = "<group>"; };
+		2ED473FA335FA8E0BE1DD96F /* boringNotchShare.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = boringNotchShare.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		357FC0E92C6DC6DC9C17D29B /* CustomizationDefaultsKeys.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomizationDefaultsKeys.swift; sourceTree = "<group>"; };
+		3AC12D01238EA21BFCEEDDBE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D2F9517354B5525DDD4413E /* IslandTheme.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandTheme.swift; sourceTree = "<group>"; };
+		3EB04945DFA0B73B4EE473F3 /* CustomizationSettingsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomizationSettingsView.swift; sourceTree = "<group>"; };
+		3EB28EC5817710BB01936B75 /* AppGroupShelfStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppGroupShelfStore.swift; sourceTree = "<group>"; };
+		410DC9036D45481F6CB77ADC /* boringNotch-iOS.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = "boringNotch-iOS.entitlements"; sourceTree = "<group>"; };
+		4817B7B9FE6DE59B2B9144FD /* ShelfProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShelfProvider.swift; sourceTree = "<group>"; };
 		507266DA2C908E2E00A2D00D /* HoverButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoverButton.swift; sourceTree = "<group>"; };
+		58804A1C5011459A2366C841 /* IslandRuntimeStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandRuntimeStore.swift; sourceTree = "<group>"; };
 		5917FD102E57891600E87F1C /* MediaKeyInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaKeyInterceptor.swift; sourceTree = "<group>"; };
 		5955950C2E900ED800C66711 /* ApplicationRelauncher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationRelauncher.swift; sourceTree = "<group>"; };
 		59D8C23B2E589FAA00147B33 /* VolumeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VolumeManager.swift; sourceTree = "<group>"; };
+		5A278A45C484B0A203AF2B97 /* CalendarProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarProvider.swift; sourceTree = "<group>"; };
+		6491FAAFB8577510DC90F45D /* ShelfItemRecord.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShelfItemRecord.swift; sourceTree = "<group>"; };
+		6D8D4802ABD2EEF46164F660 /* IslandRuntimeController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandRuntimeController.swift; sourceTree = "<group>"; };
+		6E45FDAF766162E7A3006758 /* ShelfFeatureView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShelfFeatureView.swift; sourceTree = "<group>"; };
+		7983D8B1FD0522A18A9FE26C /* PresetMigrator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresetMigrator.swift; sourceTree = "<group>"; };
+		7ABE55CEFAD9E09EA72D90DA /* boringNotchIslandWidget.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = boringNotchIslandWidget.entitlements; sourceTree = "<group>"; };
+		83A96BB349C4F5FBA8C29BD4 /* CalendarFeatureView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CalendarFeatureView.swift; sourceTree = "<group>"; };
+		868C3FD48ECC4B62177FA9A0 /* IslandLiveActivityWidget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandLiveActivityWidget.swift; sourceTree = "<group>"; };
+		882D8310CC5C5D3F598E1829 /* RootView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
+		8A717A360BA1C08188A2E9A9 /* ShareViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		8B6427F59D4529D5733537C5 /* IslandContentState+Presentation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "IslandContentState+Presentation.swift"; sourceTree = "<group>"; };
+		96D8CDD18A58F718A459689F /* IslandPreset.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandPreset.swift; sourceTree = "<group>"; };
+		98FCB4563AD767F94545EB28 /* IslandActivityManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandActivityManager.swift; sourceTree = "<group>"; };
 		9A0887312C7A693000C160EA /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		9A0887342C7AFF8E00C160EA /* TabSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabSelectionView.swift; sourceTree = "<group>"; };
 		9A987A032C73CA66005CA465 /* ShelfView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShelfView.swift; sourceTree = "<group>"; };
 		9AB0C6BB2C73C9CB00F7CD30 /* NotchHomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotchHomeView.swift; sourceTree = "<group>"; };
+		9C714660C2DFE6448BB85738 /* AppGroupIslandStateStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = AppGroupIslandStateStore.swift; sourceTree = "<group>"; };
+		9CEB2CD8DF5F8B6B5E130D03 /* MediaProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = MediaProvider.swift; sourceTree = "<group>"; };
+		9DE40BC9CA91C1710FC162D0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		A14474F0498E675EC677038E /* boringNotchShare.entitlements */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.entitlements; path = boringNotchShare.entitlements; sourceTree = "<group>"; };
 		B10348D82C74E56000475897 /* ConditionalModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionalModifier.swift; sourceTree = "<group>"; };
 		B10F84A22C6C9596009F3026 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 		B141C2402CA5F53E00AC8CC8 /* SparkleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SparkleView.swift; sourceTree = "<group>"; };
@@ -308,11 +456,22 @@
 		B1F0A0012E60000100000001 /* BrightnessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrightnessManager.swift; sourceTree = "<group>"; };
 		B1F747F82EC7E94000F841DB /* LottieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		B1FEB4982C7686630066EBBC /* PanGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanGesture.swift; sourceTree = "<group>"; };
+		B56999AEB9A6B15E5A257347 /* PresetDocument.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PresetDocument.swift; sourceTree = "<group>"; };
+		C0C1576850D5701EC3CE63F5 /* IslandTheme+SwiftUI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "IslandTheme+SwiftUI.swift"; sourceTree = "<group>"; };
+		C33703AE0554598890DA3B27 /* boringNotchIslandWidgetBundle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = boringNotchIslandWidgetBundle.swift; sourceTree = "<group>"; };
+		CC127F48EEFB2297C7F8BCD4 /* boringNotch-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "boringNotch-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC375F5675820D86BF7FFC82 /* BatteryProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = BatteryProvider.swift; sourceTree = "<group>"; };
+		CCAE32A3D3C864CDDB493905 /* boringNotchIslandWidget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = boringNotchIslandWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDB0CDB83A58AFEB4F0B254C /* IslandControlPanelView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandControlPanelView.swift; sourceTree = "<group>"; };
+		E0E4C41C95E25027B4A387C3 /* CustomizationStore.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CustomizationStore.swift; sourceTree = "<group>"; };
+		E9A55BC93F1A5468D32D4ACE /* IslandAppGroup.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = IslandAppGroup.swift; sourceTree = "<group>"; };
 		F38DE6472D8243E2008B5C6D /* BatteryActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BatteryActivityManager.swift; sourceTree = "<group>"; };
+		F89AD3CFCAF33AEDB487026C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F9F20BC226B69607B6C162CE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		11F7485C2EC9AABA00F841DB /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
+		11F7485C2EC9AABA00F841DB /* Exceptions for "BoringNotchXPCHelper" folder in "BoringNotchXPCHelper" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -322,8 +481,29 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		112FB72F2CCF12CC0015238C /* private */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = private; sourceTree = "<group>"; };
-		11F748502EC9AABA00F841DB /* BoringNotchXPCHelper */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (11F7485C2EC9AABA00F841DB /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = BoringNotchXPCHelper; sourceTree = "<group>"; };
+		112FB72F2CCF12CC0015238C /* private */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = private;
+			sourceTree = "<group>";
+		};
+		11F748502EC9AABA00F841DB /* BoringNotchXPCHelper */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				11F7485C2EC9AABA00F841DB /* Exceptions for "BoringNotchXPCHelper" folder in "BoringNotchXPCHelper" target */,
+			);
+			explicitFileTypes = {
+			};
+			explicitFolders = (
+			);
+			path = BoringNotchXPCHelper;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -351,6 +531,30 @@
 				B19016222CC15B3D00E3F12E /* Defaults in Frameworks */,
 				111BE95D2ECD71E10079DD4E /* AsyncXPCConnection in Frameworks */,
 				B1628B922CC260C0003D8DF3 /* SwiftUIIntrospect in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2C8B354C67B6E937EA167F4D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1175EBCB9A55690D81D8C1DB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		56A439CA90C292D4D9666DBE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A1180E8B2476E2FEA74041C1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		61744DAF58FABADE869F322E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E90BC0ED09ABD90944556749 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -452,6 +656,17 @@
 			path = XPCHelperClient;
 			sourceTree = "<group>";
 		};
+		12E55AFBC6C7ECBC4F0C629C /* ShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				F9F20BC226B69607B6C162CE /* Info.plist */,
+				A14474F0498E675EC677038E /* boringNotchShare.entitlements */,
+				8A717A360BA1C08188A2E9A9 /* ShareViewController.swift */,
+			);
+			name = ShareExtension;
+			path = ShareExtension;
+			sourceTree = "<group>";
+		};
 		14288DD92C6E015000B9F80C /* helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -546,6 +761,8 @@
 				11F748502EC9AABA00F841DB /* BoringNotchXPCHelper */,
 				14CEF4132C5CAED300855D72 /* Products */,
 				14D031EC2C689DB70096E6A1 /* Frameworks */,
+				B3532CCF45A010631DF76F7E /* iOS */,
+				FC27121D9B70E2A56CD1EC85 /* Shared */,
 			);
 			sourceTree = "<group>";
 		};
@@ -554,6 +771,9 @@
 			children = (
 				14CEF4122C5CAED300855D72 /* boringNotch.app */,
 				11F7484F2EC9AABA00F841DB /* BoringNotchXPCHelper.xpc */,
+				CC127F48EEFB2297C7F8BCD4 /* boringNotch-iOS.app */,
+				CCAE32A3D3C864CDDB493905 /* boringNotchIslandWidget.appex */,
+				2ED473FA335FA8E0BE1DD96F /* boringNotchShare.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -602,6 +822,7 @@
 				14D031EF2C689DC00096E6A1 /* ApplicationServices.framework */,
 				14D031ED2C689DB70096E6A1 /* IOKit.framework */,
 				112B0EBA2E30DD5000562D6C /* MediaRemoteAdapter.framework */,
+				C3BBE1A4C0D0291F508F32AF /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -638,6 +859,90 @@
 			path = models;
 			sourceTree = "<group>";
 		};
+		1BBBA7A9EA04E947429F3D71 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				1055892A92D4E41F2D134313 /* CapabilityMatrix.swift */,
+				8B6427F59D4529D5733537C5 /* IslandContentState+Presentation.swift */,
+				27A6A8EB8347053646CE68AD /* IslandContentState.swift */,
+				2BAC0BB463CD3DE24E4FC071 /* IslandEvent.swift */,
+				2DCA92C3CBA90E0BA2814075 /* IslandModule.swift */,
+			);
+			name = Core;
+			path = Core;
+			sourceTree = "<group>";
+		};
+		21163A1FA3E79FB5311A504E /* WidgetExtension */ = {
+			isa = PBXGroup;
+			children = (
+				3AC12D01238EA21BFCEEDDBE /* Info.plist */,
+				7ABE55CEFAD9E09EA72D90DA /* boringNotchIslandWidget.entitlements */,
+				868C3FD48ECC4B62177FA9A0 /* IslandLiveActivityWidget.swift */,
+				C33703AE0554598890DA3B27 /* boringNotchIslandWidgetBundle.swift */,
+			);
+			name = WidgetExtension;
+			path = WidgetExtension;
+			sourceTree = "<group>";
+		};
+		21BB2769519BA4DE7F7EAB4F /* Island */ = {
+			isa = PBXGroup;
+			children = (
+				98FCB4563AD767F94545EB28 /* IslandActivityManager.swift */,
+				09B495D59B9842D886F7DA53 /* IslandAttributes.swift */,
+				09F7908AFBF233647652AA96 /* IslandStateMapper.swift */,
+			);
+			name = Island;
+			path = Island;
+			sourceTree = "<group>";
+		};
+		531B512317DA7573657EBF4D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				CDB0CDB83A58AFEB4F0B254C /* IslandControlPanelView.swift */,
+			);
+			name = Home;
+			path = Home;
+			sourceTree = "<group>";
+		};
+		59C9A0DB6D3D48BBB6E41C3E /* Customization */ = {
+			isa = PBXGroup;
+			children = (
+				9C714660C2DFE6448BB85738 /* AppGroupIslandStateStore.swift */,
+				3EB28EC5817710BB01936B75 /* AppGroupShelfStore.swift */,
+				357FC0E92C6DC6DC9C17D29B /* CustomizationDefaultsKeys.swift */,
+				E0E4C41C95E25027B4A387C3 /* CustomizationStore.swift */,
+				E9A55BC93F1A5468D32D4ACE /* IslandAppGroup.swift */,
+				0A25FBC7C8B80668A4F6F5AD /* IslandBehaviorConfig.swift */,
+				21A34B77CA0E7A688B79E2F9 /* IslandModuleConfig.swift */,
+				96D8CDD18A58F718A459689F /* IslandPreset.swift */,
+				C0C1576850D5701EC3CE63F5 /* IslandTheme+SwiftUI.swift */,
+				3D2F9517354B5525DDD4413E /* IslandTheme.swift */,
+				7983D8B1FD0522A18A9FE26C /* PresetMigrator.swift */,
+				6491FAAFB8577510DC90F45D /* ShelfItemRecord.swift */,
+				1AEF1AC378C1E9A8D7B8AE88 /* UserDefaultsCustomizationStore.swift */,
+			);
+			name = Customization;
+			path = Customization;
+			sourceTree = "<group>";
+		};
+		5FAC69F34110458179F56F97 /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				83A96BB349C4F5FBA8C29BD4 /* CalendarFeatureView.swift */,
+			);
+			name = Calendar;
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		7EDC2665DC0341DE0C9879D4 /* Shelf */ = {
+			isa = PBXGroup;
+			children = (
+				6E45FDAF766162E7A3006758 /* ShelfFeatureView.swift */,
+			);
+			name = Shelf;
+			path = Shelf;
+			sourceTree = "<group>";
+		};
 		9A0887332C7AFF7E00C160EA /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
@@ -656,6 +961,18 @@
 				1113ABC42E80E27000EC13B2 /* Views */,
 			);
 			path = Shelf;
+			sourceTree = "<group>";
+		};
+		ABE8AC4D2B3581439FC650B8 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				5FAC69F34110458179F56F97 /* Calendar */,
+				531B512317DA7573657EBF4D /* Home */,
+				EDFDB803643EE12FA2DDC854 /* Settings */,
+				7EDC2665DC0341DE0C9879D4 /* Shelf */,
+			);
+			name = Features;
+			path = Features;
 			sourceTree = "<group>";
 		};
 		B141C23B2CA5F50900AC8CC8 /* Onboarding */ = {
@@ -757,9 +1074,103 @@
 			path = Tips;
 			sourceTree = "<group>";
 		};
+		B3532CCF45A010631DF76F7E /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				D7A5804E7FABED386D103BBB /* App */,
+				ABE8AC4D2B3581439FC650B8 /* Features */,
+				EA15D8B5ABECC28F3473C17E /* Providers */,
+				12E55AFBC6C7ECBC4F0C629C /* ShareExtension */,
+				21163A1FA3E79FB5311A504E /* WidgetExtension */,
+			);
+			name = iOS;
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		C059F5C6B8C3D9D89AA03EFA /* Runtime */ = {
+			isa = PBXGroup;
+			children = (
+				6D8D4802ABD2EEF46164F660 /* IslandRuntimeController.swift */,
+			);
+			name = Runtime;
+			path = Runtime;
+			sourceTree = "<group>";
+		};
+		C3BBE1A4C0D0291F508F32AF /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				9DE40BC9CA91C1710FC162D0 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		D7A5804E7FABED386D103BBB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F89AD3CFCAF33AEDB487026C /* Info.plist */,
+				410DC9036D45481F6CB77ADC /* boringNotch-iOS.entitlements */,
+				00BDD33DAF2FBD6E95BDA6B4 /* BoringNotchiOSApp.swift */,
+				58804A1C5011459A2366C841 /* IslandRuntimeStore.swift */,
+				882D8310CC5C5D3F598E1829 /* RootView.swift */,
+			);
+			name = App;
+			path = App;
+			sourceTree = "<group>";
+		};
+		EA15D8B5ABECC28F3473C17E /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				CC375F5675820D86BF7FFC82 /* BatteryProvider.swift */,
+				5A278A45C484B0A203AF2B97 /* CalendarProvider.swift */,
+				9CEB2CD8DF5F8B6B5E130D03 /* MediaProvider.swift */,
+				4817B7B9FE6DE59B2B9144FD /* ShelfProvider.swift */,
+			);
+			name = Providers;
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		EDFDB803643EE12FA2DDC854 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				3EB04945DFA0B73B4EE473F3 /* CustomizationSettingsView.swift */,
+				B56999AEB9A6B15E5A257347 /* PresetDocument.swift */,
+			);
+			name = Settings;
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FC27121D9B70E2A56CD1EC85 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				1BBBA7A9EA04E947429F3D71 /* Core */,
+				59C9A0DB6D3D48BBB6E41C3E /* Customization */,
+				21BB2769519BA4DE7F7EAB4F /* Island */,
+				C059F5C6B8C3D9D89AA03EFA /* Runtime */,
+			);
+			name = Shared;
+			path = Shared;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0709C805AE351752B32E0A7E /* boringNotchIslandWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95A2C91B2D7B3341B7BBC7B9 /* Build configuration list for PBXNativeTarget "boringNotchIslandWidget" */;
+			buildPhases = (
+				474C7A847F4F3D84EE4C5272 /* Sources */,
+				61744DAF58FABADE869F322E /* Frameworks */,
+				8BFDBA9DF9B2D51119B2E6C2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = boringNotchIslandWidget;
+			productName = boringNotchIslandWidget;
+			productReference = CCAE32A3D3C864CDDB493905 /* boringNotchIslandWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		11F7484E2EC9AABA00F841DB /* BoringNotchXPCHelper */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11F7485D2EC9AABA00F841DB /* Build configuration list for PBXNativeTarget "BoringNotchXPCHelper" */;
@@ -776,8 +1187,6 @@
 				11F748502EC9AABA00F841DB /* BoringNotchXPCHelper */,
 			);
 			name = BoringNotchXPCHelper;
-			packageProductDependencies = (
-			);
 			productName = BoringNotchXPCHelper;
 			productReference = 11F7484F2EC9AABA00F841DB /* BoringNotchXPCHelper.xpc */;
 			productType = "com.apple.product-type.xpc-service";
@@ -818,6 +1227,43 @@
 			productName = dynamicNotch;
 			productReference = 14CEF4122C5CAED300855D72 /* boringNotch.app */;
 			productType = "com.apple.product-type.application";
+		};
+		1FF7E7A57D4A301203EFC42A /* boringNotch-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 93278BF37BE562410DF0C8DD /* Build configuration list for PBXNativeTarget "boringNotch-iOS" */;
+			buildPhases = (
+				4B6B334B1CF09EC2976D8A20 /* Sources */,
+				56A439CA90C292D4D9666DBE /* Frameworks */,
+				D5FD9C9993EAD8F0CD78D71F /* Resources */,
+				5ED2064F248A2DF2F05793C0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				95C0DAFD44D933F9680F8790 /* PBXTargetDependency */,
+				91F2CF5ED6539766F074BC20 /* PBXTargetDependency */,
+			);
+			name = "boringNotch-iOS";
+			productName = "boringNotch-iOS";
+			productReference = CC127F48EEFB2297C7F8BCD4 /* boringNotch-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		89C864E982455AEBFA706226 /* boringNotchShare */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2718180B815B8316E583CABA /* Build configuration list for PBXNativeTarget "boringNotchShare" */;
+			buildPhases = (
+				8197CC4EFE0BC05B37885E8D /* Sources */,
+				2C8B354C67B6E937EA167F4D /* Frameworks */,
+				EEB8E89B9747E385EBFE7331 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = boringNotchShare;
+			productName = boringNotchShare;
+			productReference = 2ED473FA335FA8E0BE1DD96F /* boringNotchShare.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -866,6 +1312,9 @@
 			targets = (
 				14CEF4112C5CAED300855D72 /* boringNotch */,
 				11F7484E2EC9AABA00F841DB /* BoringNotchXPCHelper */,
+				1FF7E7A57D4A301203EFC42A /* boringNotch-iOS */,
+				0709C805AE351752B32E0A7E /* boringNotchIslandWidget */,
+				89C864E982455AEBFA706226 /* boringNotchShare */,
 			);
 		};
 /* End PBXProject section */
@@ -888,6 +1337,27 @@
 				112B0EB92E30DD0F00562D6C /* mediaremote-adapter.pl in Resources */,
 				B17266E12C6532560031BA0D /* Localizable.xcstrings in Resources */,
 				14A7E5972C65FD31008C1BE9 /* boring.m4a in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BFDBA9DF9B2D51119B2E6C2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D5FD9C9993EAD8F0CD78D71F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EEB8E89B9747E385EBFE7331 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1023,6 +1493,108 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		474C7A847F4F3D84EE4C5272 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				69E49C58A2A1520368CA3435 /* CapabilityMatrix.swift in Sources */,
+				9D5828DF74F548B1BF19D539 /* IslandContentState+Presentation.swift in Sources */,
+				D2159465D3E4D8B52B928772 /* IslandContentState.swift in Sources */,
+				CBBE679DD767E0D8AEB5A3D0 /* IslandEvent.swift in Sources */,
+				022121BF5E00E2CD56FB5F57 /* IslandModule.swift in Sources */,
+				B02F8A3508352DC886477942 /* AppGroupIslandStateStore.swift in Sources */,
+				E17C3B2B04BBD733EF7FC088 /* AppGroupShelfStore.swift in Sources */,
+				500FF88CF5EC7DC70C44CF49 /* CustomizationDefaultsKeys.swift in Sources */,
+				3553FF1CEB1BBB758ACB0AE6 /* CustomizationStore.swift in Sources */,
+				AB038570922AC139D451717F /* IslandAppGroup.swift in Sources */,
+				6EFF4C56C5665BF1D6873A51 /* IslandBehaviorConfig.swift in Sources */,
+				059D6434A6B2BDC61B611EB4 /* IslandModuleConfig.swift in Sources */,
+				2DAC5F9C6F26826D1133CD7C /* IslandPreset.swift in Sources */,
+				71B79B2DE51232CC14251185 /* IslandTheme+SwiftUI.swift in Sources */,
+				73423ACC3DFB225E43BE1DDE /* IslandTheme.swift in Sources */,
+				E509517AFBCB060E8D5082FC /* PresetMigrator.swift in Sources */,
+				1F09B0A8C1B0FA04687B0840 /* ShelfItemRecord.swift in Sources */,
+				F9803B8656A8ABD7C45ACE0A /* UserDefaultsCustomizationStore.swift in Sources */,
+				73399CE06476FF60C64368E2 /* IslandActivityManager.swift in Sources */,
+				3BE9862401D5C99D7E63488E /* IslandAttributes.swift in Sources */,
+				60E90C635F254475C0CC7A16 /* IslandStateMapper.swift in Sources */,
+				78EF6EDAC8931A29CC2CE6AA /* IslandRuntimeController.swift in Sources */,
+				B5B9AC9CC35862B53A227C12 /* IslandLiveActivityWidget.swift in Sources */,
+				BAD50A02D07C375A9A9BFFAD /* boringNotchIslandWidgetBundle.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4B6B334B1CF09EC2976D8A20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4089FC60BDFD0097C2561AAE /* CapabilityMatrix.swift in Sources */,
+				E1E96DB47D94EAE948B53332 /* IslandContentState+Presentation.swift in Sources */,
+				DEDF4BF2908256797D0F0C9C /* IslandContentState.swift in Sources */,
+				0C1B2628E5DBD03180B13CD5 /* IslandEvent.swift in Sources */,
+				CCC7BC9901CBA266BCCC5741 /* IslandModule.swift in Sources */,
+				2D788D93484D4486365CF438 /* AppGroupIslandStateStore.swift in Sources */,
+				935F114E7218F07ADB2AF7AB /* AppGroupShelfStore.swift in Sources */,
+				BCCF0DCFA2D47886E5BFDD08 /* CustomizationDefaultsKeys.swift in Sources */,
+				DE87756D8C60257D6CF84E61 /* CustomizationStore.swift in Sources */,
+				493E8202ED25F1C093632292 /* IslandAppGroup.swift in Sources */,
+				8DFA1C0E1546FF91368A1734 /* IslandBehaviorConfig.swift in Sources */,
+				2C3C65365B969B0189A5F7A8 /* IslandModuleConfig.swift in Sources */,
+				88D5889C0F87B9617960BF69 /* IslandPreset.swift in Sources */,
+				7CB4DD20CA84FE796C64530B /* IslandTheme+SwiftUI.swift in Sources */,
+				6BEC21A685363DDCFA74BFC5 /* IslandTheme.swift in Sources */,
+				812C2042AF8D395481BBF96E /* PresetMigrator.swift in Sources */,
+				B1CAF303C23FD82D9D2CCA85 /* ShelfItemRecord.swift in Sources */,
+				C45570D7DC43C41740A15B27 /* UserDefaultsCustomizationStore.swift in Sources */,
+				E0B57233A15AA0A1AD57A6AD /* IslandActivityManager.swift in Sources */,
+				7452DC72E71AF47551D8EB76 /* IslandAttributes.swift in Sources */,
+				BCA26FD27ED5F1F8C7AC2CC0 /* IslandStateMapper.swift in Sources */,
+				8398DBC954AFAB5C81BE4DB1 /* IslandRuntimeController.swift in Sources */,
+				C307476D0E44C51D2BF4E30A /* BoringNotchiOSApp.swift in Sources */,
+				777DB6DBEE63C24277CB592C /* IslandRuntimeStore.swift in Sources */,
+				284E0FA427F2C13D3474AC10 /* RootView.swift in Sources */,
+				4181B372C0E53303732231C8 /* CalendarFeatureView.swift in Sources */,
+				D9269D2CF14A31C4CCBB03B4 /* IslandControlPanelView.swift in Sources */,
+				992FFF644FC8D8DDB3748DD7 /* CustomizationSettingsView.swift in Sources */,
+				B9967878E444B8B01F3EBE05 /* PresetDocument.swift in Sources */,
+				287E20C2BA3F1BEDCE4AEF13 /* ShelfFeatureView.swift in Sources */,
+				9C618DFCA667985907E9C6CC /* BatteryProvider.swift in Sources */,
+				F650C5720560ED8DB58FB834 /* CalendarProvider.swift in Sources */,
+				BCCF86758F0AE2F07568FBAD /* MediaProvider.swift in Sources */,
+				7B8A5655AE79886F4CCB7AA2 /* ShelfProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8197CC4EFE0BC05B37885E8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F2100068536A4D3DD46AB7E /* CapabilityMatrix.swift in Sources */,
+				FF377D1194931D6BE7420FA8 /* IslandContentState+Presentation.swift in Sources */,
+				DFF63AC0BAD267BC6493AE40 /* IslandContentState.swift in Sources */,
+				A40806F47DDE889FBA583E24 /* IslandEvent.swift in Sources */,
+				7BB0E70AD26B2C1A977F8A99 /* IslandModule.swift in Sources */,
+				DFBC0DADBBB1DB695B7155FC /* AppGroupIslandStateStore.swift in Sources */,
+				7C63DE023B7BB60F88BF29E9 /* AppGroupShelfStore.swift in Sources */,
+				96490E813D33253B461AEEA1 /* CustomizationDefaultsKeys.swift in Sources */,
+				E853A22878EF5268B282C43E /* CustomizationStore.swift in Sources */,
+				573799455816166F49BDAF23 /* IslandAppGroup.swift in Sources */,
+				33BA6D62A964CB15394FFA69 /* IslandBehaviorConfig.swift in Sources */,
+				047103032D850EAC1164F24D /* IslandModuleConfig.swift in Sources */,
+				F7A92F825339773192CA8F4B /* IslandPreset.swift in Sources */,
+				8BC15FA95EFBE4B9B688153A /* IslandTheme+SwiftUI.swift in Sources */,
+				4A3E90933CBD5F4DBD9EA490 /* IslandTheme.swift in Sources */,
+				DBB786941D17D369B5D49C6E /* PresetMigrator.swift in Sources */,
+				11602EE4C4832007777234C1 /* ShelfItemRecord.swift in Sources */,
+				04B4839CEC659C314DF5D665 /* UserDefaultsCustomizationStore.swift in Sources */,
+				D9978C7284ECDCF7D9901169 /* IslandActivityManager.swift in Sources */,
+				6FFB96CE75C0D32DF3CD07F1 /* IslandAttributes.swift in Sources */,
+				0F8E9E90BB1FC42D893BB6BB /* IslandStateMapper.swift in Sources */,
+				1392AF15EAFC63AB324859C1 /* IslandRuntimeController.swift in Sources */,
+				B31736F287D91B3282513334 /* ShareViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1030,6 +1602,18 @@
 			isa = PBXTargetDependency;
 			target = 11F7484E2EC9AABA00F841DB /* BoringNotchXPCHelper */;
 			targetProxy = 11F748592EC9AABA00F841DB /* PBXContainerItemProxy */;
+		};
+		91F2CF5ED6539766F074BC20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = boringNotchShare;
+			target = 89C864E982455AEBFA706226 /* boringNotchShare */;
+			targetProxy = B927F8E2C3C1427D2537BE90 /* PBXContainerItemProxy */;
+		};
+		95C0DAFD44D933F9680F8790 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = boringNotchIslandWidget;
+			target = 0709C805AE351752B32E0A7E /* boringNotchIslandWidget */;
+			targetProxy = D0BFB401139FECB6AF783550 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1315,6 +1899,179 @@
 			};
 			name = Release;
 		};
+		711E83DB2DC2735AEE570D71 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = iOS/ShareExtension/boringNotchShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iOS/ShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = theboringteam.boringnotch.ios.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		7E9C44912F00472BEF07F09A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = iOS/ShareExtension/boringNotchShare.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iOS/ShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = theboringteam.boringnotch.ios.share;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		90A18BDCF5108FE20D45D7D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = "iOS/App/boringNotch-iOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iOS/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = theboringteam.boringnotch.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B8F4C09B6535C7572B9FE5AD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = iOS/WidgetExtension/boringNotchIslandWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iOS/WidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = theboringteam.boringnotch.ios.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D768281429AF43FADF3B81CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = "iOS/App/boringNotch-iOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iOS/App/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = theboringteam.boringnotch.ios;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = NO;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E6B0F279814F40D630A1FB43 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_ENTITLEMENTS = iOS/WidgetExtension/boringNotchIslandWidget.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = iOS/WidgetExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = theboringteam.boringnotch.ios.widget;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1341,6 +2098,33 @@
 			buildConfigurations = (
 				14CEF4222C5CAED400855D72 /* Debug */,
 				14CEF4232C5CAED400855D72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2718180B815B8316E583CABA /* Build configuration list for PBXNativeTarget "boringNotchShare" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7E9C44912F00472BEF07F09A /* Release */,
+				711E83DB2DC2735AEE570D71 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		93278BF37BE562410DF0C8DD /* Build configuration list for PBXNativeTarget "boringNotch-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90A18BDCF5108FE20D45D7D0 /* Release */,
+				D768281429AF43FADF3B81CD /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		95A2C91B2D7B3341B7BBC7B9 /* Build configuration list for PBXNativeTarget "boringNotchIslandWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B8F4C09B6535C7572B9FE5AD /* Release */,
+				E6B0F279814F40D630A1FB43 /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
