@@ -5,6 +5,8 @@ struct ShelfFeatureView: View {
     @Environment(\.openURL) private var openURL
     @EnvironmentObject private var runtimeStore: IslandRuntimeStore
 
+    @State private var filter: InboxFilter = .all
+
     let startLinkCapture: () -> Void
     let startReminderCapture: () -> Void
 
@@ -35,9 +37,23 @@ struct ShelfFeatureView: View {
                         .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
                         .listRowBackground(Color.clear)
                     }
+                } else if filteredShelfItems.isEmpty {
+                    Section {
+                        VStack(alignment: .leading, spacing: 10) {
+                            Label("Nothing in \(filter.title.lowercased())", systemImage: filter.systemImage)
+                                .font(.headline)
+                            Text("Switch filters or save something new from the island to keep your queue moving.")
+                                .font(.subheadline)
+                                .foregroundStyle(theme.foregroundColor.opacity(0.72))
+                        }
+                        .padding(18)
+                        .liquidGlassCard(theme: theme, cornerRadius: 26)
+                        .listRowInsets(EdgeInsets(top: 8, leading: 0, bottom: 8, trailing: 0))
+                        .listRowBackground(Color.clear)
+                    }
                 } else {
-                    Section("Recent") {
-                        ForEach(runtimeStore.shelfItems) { item in
+                    Section(filter.sectionTitle) {
+                        ForEach(filteredShelfItems) { item in
                             InboxItemRow(item: item, theme: theme)
                                 .contentShape(Rectangle())
                                 .onTapGesture {
@@ -53,6 +69,15 @@ struct ShelfFeatureView: View {
                                     }
                                 }
                                 .swipeActions(edge: .leading) {
+                                    if item.kind == .reminder {
+                                        Button {
+                                            runtimeStore.setReminderCompletion(item, isCompleted: !item.isCompleted)
+                                        } label: {
+                                            Label(item.isCompleted ? "Reopen" : "Done", systemImage: item.isCompleted ? "arrow.uturn.backward.circle" : "checkmark.circle")
+                                        }
+                                        .tint(item.isCompleted ? .blue : .green)
+                                    }
+
                                     Button {
                                         copy(item)
                                     } label: {
@@ -63,6 +88,12 @@ struct ShelfFeatureView: View {
                                 .contextMenu {
                                     Button("Copy") {
                                         copy(item)
+                                    }
+
+                                    if item.kind == .reminder {
+                                        Button(item.isCompleted ? "Reopen Reminder" : "Complete Reminder") {
+                                            runtimeStore.setReminderCompletion(item, isCompleted: !item.isCompleted)
+                                        }
                                     }
 
                                     if item.kind == .url, let url = URL(string: item.value) {
@@ -115,26 +146,37 @@ struct ShelfFeatureView: View {
 
     @ViewBuilder
     private func inboxHeader(theme: IslandTheme) -> some View {
-        HStack(spacing: 12) {
-            Button(action: startLinkCapture) {
-                inboxActionChip(
-                    title: "Add Link",
-                    systemImage: "link.badge.plus",
-                    tint: theme.accentColor,
-                    theme: theme
-                )
-            }
-            .buttonStyle(.plain)
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(spacing: 12) {
+                Button(action: startLinkCapture) {
+                    inboxActionChip(
+                        title: "Add Link",
+                        systemImage: "link.badge.plus",
+                        tint: theme.accentColor,
+                        theme: theme
+                    )
+                }
+                .buttonStyle(.plain)
 
-            Button(action: startReminderCapture) {
-                inboxActionChip(
-                    title: "Reminder",
-                    systemImage: "checklist.checked",
-                    tint: theme.foregroundColor,
-                    theme: theme
-                )
+                Button(action: startReminderCapture) {
+                    inboxActionChip(
+                        title: "Reminder",
+                        systemImage: "checklist.checked",
+                        tint: theme.foregroundColor,
+                        theme: theme
+                    )
+                }
+                .buttonStyle(.plain)
             }
-            .buttonStyle(.plain)
+
+            if !runtimeStore.shelfItems.isEmpty {
+                Picker("Filter", selection: $filter) {
+                    ForEach(InboxFilter.allCases, id: \.self) { filter in
+                        Text(filter.title).tag(filter)
+                    }
+                }
+                .pickerStyle(.segmented)
+            }
         }
         .padding(.top, 4)
     }
@@ -148,6 +190,65 @@ struct ShelfFeatureView: View {
             .frame(maxWidth: .infinity)
             .foregroundStyle(tint)
             .liquidGlassCard(theme: theme, cornerRadius: 24, tint: tint.opacity(0.16))
+    }
+}
+
+private enum InboxFilter: CaseIterable {
+    case all
+    case links
+    case notes
+    case reminders
+
+    var title: String {
+        switch self {
+        case .all:
+            return "All"
+        case .links:
+            return "Links"
+        case .notes:
+            return "Notes"
+        case .reminders:
+            return "Reminders"
+        }
+    }
+
+    var systemImage: String {
+        switch self {
+        case .all:
+            return "tray.full"
+        case .links:
+            return "link"
+        case .notes:
+            return "text.alignleft"
+        case .reminders:
+            return "checklist"
+        }
+    }
+
+    var sectionTitle: String {
+        switch self {
+        case .all:
+            return "Recent"
+        case .links:
+            return "Links"
+        case .notes:
+            return "Notes"
+        case .reminders:
+            return "Reminders"
+        }
+    }
+
+    func includes(_ item: ShelfItemRecord) -> Bool {
+        switch self {
+        case .all:
+            return true
+        case .links:
+            return item.kind == .url
+        case .notes:
+            return item.kind == .text
+        case .reminders:
+            return item.kind == .reminder
+        }
     }
 }
 
@@ -166,6 +267,8 @@ private struct InboxItemRow: View {
                 VStack(alignment: .leading, spacing: 4) {
                     Text(item.title)
                         .font(.headline)
+                        .strikethrough(item.isCompleted)
+                        .foregroundStyle(item.isCompleted ? theme.foregroundColor.opacity(0.62) : theme.foregroundColor)
                     Text(item.createdAt, style: .relative)
                         .font(.caption)
                         .foregroundStyle(theme.foregroundColor.opacity(0.6))
@@ -178,14 +281,14 @@ private struct InboxItemRow: View {
                         .font(.caption.weight(.semibold))
                         .padding(.horizontal, 10)
                         .padding(.vertical, 6)
-                        .background(theme.accentColor.opacity(0.15), in: Capsule())
-                        .foregroundStyle(theme.accentColor)
+                        .background(dueDateTint.opacity(0.15), in: Capsule())
+                        .foregroundStyle(dueDateTint)
                 }
             }
 
             Text(detailText)
                 .font(.subheadline)
-                .foregroundStyle(theme.foregroundColor.opacity(0.76))
+                .foregroundStyle(item.isCompleted ? theme.foregroundColor.opacity(0.5) : theme.foregroundColor.opacity(0.76))
                 .lineLimit(4)
 
             if item.kind == .reminder {
@@ -221,8 +324,23 @@ private struct InboxItemRow: View {
         case .url, .text:
             return item.value
         case .reminder:
+            if item.isCompleted {
+                return item.notes?.isEmpty == false ? item.notes! : "Completed reminder."
+            }
             return item.notes?.isEmpty == false ? item.notes! : "Reminder stored in your inbox."
         }
+    }
+
+    private var dueDateTint: Color {
+        guard let dueDate = item.dueDate else {
+            return theme.accentColor
+        }
+
+        if !item.isCompleted, dueDate < .now {
+            return .orange
+        }
+
+        return theme.accentColor
     }
 
     @ViewBuilder
@@ -247,5 +365,11 @@ private struct InboxItemRow: View {
             .padding(.vertical, 6)
             .background(tint.opacity(0.15), in: Capsule())
             .foregroundStyle(tint)
+    }
+}
+
+private extension ShelfFeatureView {
+    var filteredShelfItems: [ShelfItemRecord] {
+        runtimeStore.shelfItems.filter(filter.includes)
     }
 }

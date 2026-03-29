@@ -47,10 +47,10 @@ struct IslandControlPanelView: View {
     @ViewBuilder
     private func header(theme: IslandTheme) -> some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text("Persistent island, quick capture.")
+            Text("Persistent island, real actions.")
                 .font(.system(.title, design: .rounded, weight: .bold))
                 .foregroundStyle(theme.foregroundColor)
-            Text("Save links, collect notes, and create reminders without leaving the island flow.")
+            Text("Save clipboard content, collect links, and finish reminders without breaking context.")
                 .font(.subheadline)
                 .foregroundStyle(theme.foregroundColor.opacity(0.74))
         }
@@ -62,18 +62,29 @@ struct IslandControlPanelView: View {
         VStack(alignment: .leading, spacing: 14) {
             sectionHeader("Quick Actions", actionTitle: "Inbox", action: openInbox)
 
-            HStack(spacing: 12) {
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
                 QuickGlassButton(
                     title: "Add Link",
-                    subtitle: "Paste or capture",
+                    subtitle: "Compose in app",
                     systemImage: "link.badge.plus",
                     theme: theme,
                     action: startLinkCapture
                 )
 
                 QuickGlassButton(
+                    title: "Save Clipboard",
+                    subtitle: "From any copied app content",
+                    systemImage: "square.and.arrow.down.on.square",
+                    theme: theme
+                ) {
+                    Task {
+                        _ = await runtimeStore.captureClipboard()
+                    }
+                }
+
+                QuickGlassButton(
                     title: "New Reminder",
-                    subtitle: "Save for later",
+                    subtitle: "Pin a follow-up",
                     systemImage: "checklist.checked",
                     theme: theme,
                     action: startReminderCapture
@@ -105,6 +116,14 @@ struct IslandControlPanelView: View {
                         : "Local reminders save immediately. Enable sync in Settings.",
                     systemImage: runtimeStore.reminderAccessStatus.canMirror ? "checkmark.icloud.fill" : "icloud.slash",
                     trailing: runtimeStore.reminderAccessStatus.label,
+                    theme: theme
+                )
+
+                StatusCard(
+                    title: "Cross-App Capture",
+                    detail: "Use Share from other apps or the Dynamic Island clipboard action to pin content instantly.",
+                    systemImage: "square.and.arrow.down.on.square",
+                    trailing: runtimeStore.shelfItems.isEmpty ? "Ready" : "\(runtimeStore.shelfItems.count) queued",
                     theme: theme
                 )
 

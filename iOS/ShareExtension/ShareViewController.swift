@@ -2,7 +2,7 @@ import UIKit
 import UniformTypeIdentifiers
 
 final class ShareViewController: UIViewController {
-    private let shelfStore = AppGroupShelfStore()
+    private let actionController = IslandActionController()
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -29,7 +29,7 @@ final class ShareViewController: UIViewController {
         }
 
         if !collectedItems.isEmpty {
-            try? shelfStore.append(collectedItems)
+            try? await actionController.append(collectedItems)
         }
 
         completeRequest()

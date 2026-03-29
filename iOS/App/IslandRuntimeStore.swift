@@ -2,6 +2,7 @@ import ActivityKit
 import EventKit
 import Foundation
 import SwiftUI
+import UIKit
 
 @MainActor
 final class IslandRuntimeStore: ObservableObject {
@@ -72,6 +73,10 @@ final class IslandRuntimeStore: ObservableObject {
     private lazy var stateStore = AppGroupIslandStateStore(defaults: appGroupDefaults)
     private lazy var shelfStore = AppGroupShelfStore(defaults: appGroupDefaults)
     private lazy var runtimeController = IslandRuntimeController(
+        shelfStore: shelfStore,
+        stateStore: stateStore
+    )
+    private lazy var actionController = IslandActionController(
         shelfStore: shelfStore,
         stateStore: stateStore
     )
@@ -228,6 +233,22 @@ final class IslandRuntimeStore: ObservableObject {
         }
     }
 
+    @discardableResult
+    func captureClipboard() async -> Bool {
+        do {
+            guard try await actionController.captureClipboardValue(UIPasteboard.general.string) != nil else {
+                return false
+            }
+
+            refreshShelfState()
+            refreshActivityStatus()
+            return true
+        } catch {
+            activityStatus = .failed("Couldn’t save clipboard")
+            return false
+        }
+    }
+
     func captureReminder(
         title: String,
         notes: String?,
@@ -267,6 +288,22 @@ final class IslandRuntimeStore: ObservableObject {
     func endActivity() async {
         await runtimeController.endActivity(reason: .user)
         activityStatus = .inactive
+    }
+
+    func setReminderCompletion(_ item: ShelfItemRecord, isCompleted: Bool) {
+        guard item.kind == .reminder else {
+            return
+        }
+
+        Task {
+            do {
+                _ = try await actionController.setReminderCompletion(id: item.id, isCompleted: isCompleted)
+                refreshShelfState()
+                refreshActivityStatus()
+            } catch {
+                activityStatus = .failed(isCompleted ? "Couldn’t complete reminder" : "Couldn’t reopen reminder")
+            }
+        }
     }
 
     private func synchronizePersistentActivity() async {
