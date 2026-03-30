@@ -64,15 +64,21 @@ struct IslandLiveActivityWidget: Widget {
                     }
                 }
             } compactLeading: {
-                Image(systemName: state.systemImageName)
-                    .foregroundStyle(preset.theme.foregroundColor)
+                Image(systemName: compactLeadingSymbol(for: state))
+                    .symbolRenderingMode(.hierarchical)
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(compactLeadingTint(for: state, theme: preset.theme))
             } compactTrailing: {
                 Text(compactTrailingText(for: state))
-                    .foregroundStyle(preset.theme.accentColor)
-                    .font(.caption2)
+                    .foregroundStyle(compactTrailingTint(for: state, theme: preset.theme))
+                    .font(.caption2.weight(.bold))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
             } minimal: {
-                Image(systemName: state.systemImageName)
-                    .foregroundStyle(preset.theme.foregroundColor)
+                Image(systemName: compactLeadingSymbol(for: state))
+                    .symbolRenderingMode(.hierarchical)
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(compactLeadingTint(for: state, theme: preset.theme))
             }
             .widgetURL(BoringNotchRoute.island.url)
             .keylineTint(preset.theme.accentColor)
@@ -92,11 +98,61 @@ struct IslandLiveActivityWidget: Widget {
             return dueDate < .now ? "Due" : "Soon"
         }
 
-        if let shelf = state.shelf, state.activeModule == .shelf {
+        if let shelf = state.shelf, shelf.itemCount > 0 {
             return "\(shelf.itemCount)"
         }
 
-        return "•"
+        switch state.activeModule {
+        case .media:
+            return state.media?.isPlaying == true ? "Now" : "Play"
+        case .battery:
+            return state.battery.map { "\($0.percentage)" } ?? "Bat"
+        case .calendar:
+            return "Next"
+        case .shelf:
+            return "Open"
+        case .event:
+            return "Tap"
+        }
+    }
+
+    private func compactLeadingSymbol(for state: IslandContentState) -> String {
+        if state.activeModule == .event {
+            return "sparkles.circle.fill"
+        }
+
+        if state.activeModule == .shelf,
+           state.shelf?.pendingReminderCount ?? 0 > 0 {
+            return "checklist.checked"
+        }
+
+        return state.systemImageName
+    }
+
+    private func compactLeadingTint(for state: IslandContentState, theme: IslandTheme) -> Color {
+        switch state.activeModule {
+        case .battery:
+            return state.battery?.isCharging == true ? .green : theme.accentColor
+        case .calendar:
+            return .orange
+        case .event, .media, .shelf:
+            return theme.accentColor
+        }
+    }
+
+    private func compactTrailingTint(for state: IslandContentState, theme: IslandTheme) -> Color {
+        if shouldShowReminderCompletion(for: state) {
+            return .green
+        }
+
+        switch state.activeModule {
+        case .event:
+            return theme.foregroundColor
+        case .battery:
+            return state.battery?.isCharging == true ? .green : theme.accentColor
+        case .calendar, .media, .shelf:
+            return theme.accentColor
+        }
     }
 }
 
