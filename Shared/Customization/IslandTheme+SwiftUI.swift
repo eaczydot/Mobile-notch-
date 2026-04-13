@@ -14,13 +14,14 @@ public extension IslandTheme {
     var glassTintColor: Color { accentColor.opacity(0.18) }
     var glassStrokeColor: Color { foregroundColor.opacity(0.14) }
     var shadowColor: Color { accentColor.opacity(0.22) }
+    var glassHighlightColor: Color { foregroundColor.opacity(0.12) }
 
     var backdropGradient: LinearGradient {
         LinearGradient(
             colors: [
                 backgroundColor.opacity(0.98),
-                backgroundColor.opacity(0.8),
-                accentColor.opacity(0.24)
+                backgroundColor.opacity(0.86),
+                accentColor.opacity(0.26)
             ],
             startPoint: .topLeading,
             endPoint: .bottomTrailing
@@ -38,6 +39,15 @@ public struct LiquidGlassBackdrop: View {
     public var body: some View {
         ZStack {
             theme.backdropGradient
+            LinearGradient(
+                colors: [
+                    theme.foregroundColor.opacity(0.06),
+                    .clear,
+                    theme.accentColor.opacity(0.12)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
             RadialGradient(
                 colors: [
                     theme.accentColor.opacity(0.28),
@@ -64,19 +74,60 @@ public struct LiquidGlassBackdrop: View {
     }
 }
 
+public struct LiquidGlassCluster<Content: View>: View {
+    private let spacing: CGFloat?
+    private let content: Content
+
+    public init(
+        spacing: CGFloat? = nil,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.spacing = spacing
+        self.content = content()
+    }
+
+    @ViewBuilder
+    public var body: some View {
+        if #available(iOS 26.0, macOS 26.0, tvOS 26.0, watchOS 26.0, *) {
+            GlassEffectContainer(spacing: spacing) {
+                content
+            }
+        } else {
+            content
+        }
+    }
+}
+
 public extension View {
     func liquidGlassCard(
         theme: IslandTheme,
         cornerRadius: CGFloat? = nil,
-        tint: Color? = nil
+        tint: Color? = nil,
+        isInteractive: Bool = false
     ) -> some View {
         modifier(
             LiquidGlassCardModifier(
                 theme: theme,
                 cornerRadius: cornerRadius ?? theme.cornerRadius,
-                tint: tint ?? theme.glassTintColor
+                tint: tint ?? theme.glassTintColor,
+                isInteractive: isInteractive
             )
         )
+    }
+
+    @ViewBuilder
+    func liquidGlassButtonStyle(prominent: Bool = false) -> some View {
+        if #available(iOS 26.0, macOS 26.0, tvOS 26.0, watchOS 26.0, *) {
+            if prominent {
+                buttonStyle(.glassProminent)
+            } else {
+                buttonStyle(.glass)
+            }
+        } else if prominent {
+            buttonStyle(.borderedProminent)
+        } else {
+            buttonStyle(.bordered)
+        }
     }
 }
 
@@ -84,43 +135,85 @@ private struct LiquidGlassCardModifier: ViewModifier {
     let theme: IslandTheme
     let cornerRadius: CGFloat
     let tint: Color
+    let isInteractive: Bool
 
+    @ViewBuilder
     func body(content: Content) -> some View {
-        content
-            .background {
-                RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                    .fill(.ultraThinMaterial)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                            .fill(
-                                LinearGradient(
-                                    colors: [
-                                        tint.opacity(0.34),
-                                        theme.backgroundColor.opacity(0.12),
-                                        theme.foregroundColor.opacity(0.04)
-                                    ],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
+        if #available(iOS 26.0, macOS 26.0, tvOS 26.0, watchOS 26.0, *) {
+            content
+                .background(theme.backgroundColor.opacity(0.12), in: cardShape)
+                .overlay {
+                    cardShape
+                        .fill(
+                            LinearGradient(
+                                colors: [
+                                    tint.opacity(0.18),
+                                    theme.backgroundColor.opacity(0.06),
+                                    theme.glassHighlightColor.opacity(0.2)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            )
+                        )
+                }
+                .overlay {
+                    cardShape
+                        .stroke(
+                            LinearGradient(
+                                colors: [
+                                    theme.foregroundColor.opacity(0.3),
+                                    theme.glassStrokeColor,
+                                    theme.accentColor.opacity(0.14)
+                                ],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 1
+                        )
+                }
+                .glassEffect(.regular.tint(tint).interactive(isInteractive), in: cardShape)
+                .shadow(color: theme.shadowColor, radius: 24, y: 16)
+        } else {
+            content
+                .background {
+                    cardShape
+                        .fill(.ultraThinMaterial)
+                        .overlay(
+                            cardShape
+                                .fill(
+                                    LinearGradient(
+                                        colors: [
+                                            tint.opacity(0.34),
+                                            theme.backgroundColor.opacity(0.12),
+                                            theme.foregroundColor.opacity(0.04)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    )
                                 )
-                            )
-                    )
-                    .overlay(
-                        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                            .stroke(
-                                LinearGradient(
-                                    colors: [
-                                        theme.foregroundColor.opacity(0.34),
-                                        theme.glassStrokeColor,
-                                        theme.accentColor.opacity(0.12)
-                                    ],
-                                    startPoint: .topLeading,
-                                    endPoint: .bottomTrailing
-                                ),
-                                lineWidth: 1
-                            )
-                    )
-                    .shadow(color: theme.shadowColor, radius: 24, y: 16)
-            }
+                        )
+                        .overlay(
+                            cardShape
+                                .stroke(
+                                    LinearGradient(
+                                        colors: [
+                                            theme.foregroundColor.opacity(0.34),
+                                            theme.glassStrokeColor,
+                                            theme.accentColor.opacity(0.12)
+                                        ],
+                                        startPoint: .topLeading,
+                                        endPoint: .bottomTrailing
+                                    ),
+                                    lineWidth: 1
+                                )
+                        )
+                        .shadow(color: theme.shadowColor, radius: 24, y: 16)
+                }
+        }
+    }
+
+    private var cardShape: RoundedRectangle {
+        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
     }
 }
 

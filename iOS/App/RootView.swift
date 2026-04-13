@@ -10,31 +10,24 @@ struct RootView: View {
     var body: some View {
         NavigationStack(path: $path) {
             IslandControlPanelView(
-                openInbox: { path = [.inbox] },
-                openSettings: { activeSheet = .settings },
-                startLinkCapture: { activeSheet = .captureLink },
-                startReminderCapture: { activeSheet = .captureReminder }
+                openInbox: openInbox,
+                openSettings: openSettings,
+                startLinkCapture: startLinkCapture,
+                startReminderCapture: startReminderCapture
             )
             .navigationDestination(for: Destination.self) { destination in
                 switch destination {
                 case .inbox:
                     ShelfFeatureView(
-                        startLinkCapture: { activeSheet = .captureLink },
-                        startReminderCapture: { activeSheet = .captureReminder }
+                        startLinkCapture: startLinkCapture,
+                        startReminderCapture: startReminderCapture
                     )
                 }
             }
         }
         .sheet(item: $activeSheet) { destination in
             NavigationStack {
-                switch destination {
-                case .settings:
-                    CustomizationSettingsView()
-                case .captureLink:
-                    LinkCaptureSheet()
-                case .captureReminder:
-                    ReminderCaptureSheet()
-                }
+                sheetView(for: destination)
             }
             .environmentObject(runtimeStore)
             .presentationBackground(.thinMaterial)
@@ -46,6 +39,34 @@ struct RootView: View {
             }
             handle(route)
         }
+    }
+
+    @ViewBuilder
+    private func sheetView(for destination: SheetDestination) -> some View {
+        switch destination {
+        case .settings:
+            CustomizationSettingsView()
+        case .captureLink:
+            LinkCaptureSheet()
+        case .captureReminder:
+            ReminderCaptureSheet()
+        }
+    }
+
+    private func openInbox() {
+        path = [.inbox]
+    }
+
+    private func openSettings() {
+        activeSheet = .settings
+    }
+
+    private func startLinkCapture() {
+        activeSheet = .captureLink
+    }
+
+    private func startReminderCapture() {
+        activeSheet = .captureReminder
     }
 
     private func handle(_ route: BoringNotchRoute) {
@@ -95,56 +116,46 @@ private struct LinkCaptureSheet: View {
     @State private var rawURL = ""
     @State private var showsValidationError = false
 
-    var body: some View {
-        let theme = runtimeStore.selectedPreset.theme
+    private var theme: IslandTheme {
+        runtimeStore.selectedPreset.theme
+    }
 
+    var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("Add Link")
-                        .font(.title2.weight(.semibold))
-                    Text("Paste a link to pin it into your inbox and island flow.")
-                        .foregroundStyle(theme.foregroundColor.opacity(0.72))
-                }
+                CaptureSheetHeader(
+                    title: "Add Link",
+                    subtitle: "Paste a link to pin it into your inbox and island flow.",
+                    theme: theme
+                )
 
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("URL")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(theme.foregroundColor.opacity(0.72))
-                    TextField("https://example.com", text: $rawURL)
-                        .textInputAutocapitalization(.never)
-                        .keyboardType(.URL)
-                        .autocorrectionDisabled()
-                        .padding(14)
-                        .liquidGlassCard(theme: theme, cornerRadius: 20)
-                }
-
-                if showsValidationError {
-                    Text("Enter a valid URL to save this link.")
-                        .font(.footnote)
-                        .foregroundStyle(.red)
-                }
-
-                HStack(spacing: 12) {
-                    Button("Paste Clipboard") {
-                        rawURL = UIPasteboard.general.string ?? rawURL
-                    }
-                    .buttonStyle(.bordered)
-
-                    Spacer()
-
-                    Button("Save Link") {
-                        Task {
-                            guard let url = normalizedURL(from: rawURL) else {
-                                showsValidationError = true
-                                return
-                            }
-
-                            await runtimeStore.captureLink(url)
-                            dismiss()
+                LiquidGlassCluster(spacing: 18) {
+                    VStack(alignment: .leading, spacing: 18) {
+                        CaptureFieldSection(title: "URL", theme: theme) {
+                            TextField("https://example.com", text: $rawURL)
+                                .textInputAutocapitalization(.never)
+                                .keyboardType(.URL)
+                                .autocorrectionDisabled()
+                                .padding(14)
+                                .liquidGlassCard(
+                                    theme: theme,
+                                    cornerRadius: 20,
+                                    isInteractive: true
+                                )
                         }
+
+                        if showsValidationError {
+                            Text("Enter a valid URL to save this link.")
+                                .font(.footnote)
+                                .foregroundStyle(.red)
+                        }
+
+                        LinkCaptureActions(
+                            saveLink: saveLink,
+                            pasteClipboard: pasteClipboard,
+                            theme: theme
+                        )
                     }
-                    .buttonStyle(.borderedProminent)
                 }
             }
             .padding(24)
@@ -152,6 +163,22 @@ private struct LinkCaptureSheet: View {
         .background(LiquidGlassBackdrop(theme: theme))
         .navigationTitle("Quick Capture")
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private func pasteClipboard() {
+        rawURL = UIPasteboard.general.string ?? rawURL
+    }
+
+    private func saveLink() {
+        Task {
+            guard let url = normalizedURL(from: rawURL) else {
+                showsValidationError = true
+                return
+            }
+
+            await runtimeStore.captureLink(url)
+            dismiss()
+        }
     }
 
     private func normalizedURL(from rawValue: String) -> URL? {
@@ -181,90 +208,65 @@ private struct ReminderCaptureSheet: View {
     @State private var duePreset: ReminderDuePreset = .none
     @State private var customDueDate = Calendar.current.date(byAdding: .hour, value: 2, to: .now) ?? .now
 
-    var body: some View {
-        let theme = runtimeStore.selectedPreset.theme
+    private var theme: IslandTheme {
+        runtimeStore.selectedPreset.theme
+    }
 
+    private var canSaveReminder: Bool {
+        !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+
+    var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 18) {
-                VStack(alignment: .leading, spacing: 6) {
-                    Text("New Reminder")
-                        .font(.title2.weight(.semibold))
-                    Text("Create a reminder for your inbox and mirror it to Apple Reminders when sync is enabled.")
-                        .foregroundStyle(theme.foregroundColor.opacity(0.72))
-                }
+                CaptureSheetHeader(
+                    title: "New Reminder",
+                    subtitle: "Create a reminder for your inbox and mirror it to Apple Reminders when sync is enabled.",
+                    theme: theme
+                )
 
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Title")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(theme.foregroundColor.opacity(0.72))
-                    TextField("Follow up on launch notes", text: $title, axis: .vertical)
-                        .lineLimit(1...3)
-                        .padding(14)
-                        .liquidGlassCard(theme: theme, cornerRadius: 20)
-                }
-
-                VStack(alignment: .leading, spacing: 10) {
-                    Text("Notes")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(theme.foregroundColor.opacity(0.72))
-                    TextField("Optional details", text: $notes, axis: .vertical)
-                        .lineLimit(2...4)
-                        .padding(14)
-                        .liquidGlassCard(theme: theme, cornerRadius: 20)
-                }
-
-                VStack(alignment: .leading, spacing: 12) {
-                    Text("Due")
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(theme.foregroundColor.opacity(0.72))
-
-                    Picker("Due preset", selection: $duePreset) {
-                        ForEach(ReminderDuePreset.allCases, id: \.self) { preset in
-                            Text(preset.label).tag(preset)
+                LiquidGlassCluster(spacing: 18) {
+                    VStack(alignment: .leading, spacing: 18) {
+                        CaptureFieldSection(title: "Title", theme: theme) {
+                            TextField("Follow up on launch notes", text: $title, axis: .vertical)
+                                .lineLimit(1...3)
+                                .padding(14)
+                                .liquidGlassCard(
+                                    theme: theme,
+                                    cornerRadius: 20,
+                                    isInteractive: true
+                                )
                         }
-                    }
-                    .pickerStyle(.segmented)
 
-                    if duePreset == .pickDate {
-                        DatePicker(
-                            "Custom Date",
-                            selection: $customDueDate,
-                            displayedComponents: [.date, .hourAndMinute]
+                        CaptureFieldSection(title: "Notes", theme: theme) {
+                            TextField("Optional details", text: $notes, axis: .vertical)
+                                .lineLimit(2...4)
+                                .padding(14)
+                                .liquidGlassCard(
+                                    theme: theme,
+                                    cornerRadius: 20,
+                                    isInteractive: true
+                                )
+                        }
+
+                        ReminderDueSection(
+                            duePreset: $duePreset,
+                            customDueDate: $customDueDate,
+                            theme: theme
                         )
-                        .datePickerStyle(.compact)
+
+                        ReminderSyncCard(
+                            canMirror: runtimeStore.reminderAccessStatus.canMirror,
+                            statusLabel: runtimeStore.reminderAccessStatus.label,
+                            theme: theme
+                        )
+
+                        ReminderCaptureActions(
+                            canSave: canSaveReminder,
+                            saveReminder: saveReminder,
+                            theme: theme
+                        )
                     }
-                }
-
-                HStack {
-                    Label("Reminder Sync", systemImage: runtimeStore.reminderAccessStatus.canMirror ? "checkmark.icloud" : "icloud.slash")
-                        .foregroundStyle(theme.foregroundColor.opacity(0.8))
-                    Spacer()
-                    Text(runtimeStore.reminderAccessStatus.label)
-                        .font(.caption.weight(.semibold))
-                        .foregroundStyle(runtimeStore.reminderAccessStatus.canMirror ? theme.accentColor : theme.foregroundColor.opacity(0.72))
-                }
-                .padding(16)
-                .liquidGlassCard(theme: theme, cornerRadius: 22)
-
-                HStack(spacing: 12) {
-                    Spacer()
-                    Button("Save Reminder") {
-                        Task {
-                            let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
-                            guard !trimmedTitle.isEmpty else {
-                                return
-                            }
-
-                            await runtimeStore.captureReminder(
-                                title: trimmedTitle,
-                                notes: notes.trimmingCharacters(in: .whitespacesAndNewlines),
-                                dueDate: duePreset.resolveDate(customDate: customDueDate)
-                            )
-                            dismiss()
-                        }
-                    }
-                    .buttonStyle(.borderedProminent)
-                    .disabled(title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
             }
             .padding(24)
@@ -272,6 +274,150 @@ private struct ReminderCaptureSheet: View {
         .background(LiquidGlassBackdrop(theme: theme))
         .navigationTitle("Quick Reminder")
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    private func saveReminder() {
+        Task {
+            let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !trimmedTitle.isEmpty else {
+                return
+            }
+
+            await runtimeStore.captureReminder(
+                title: trimmedTitle,
+                notes: notes.trimmingCharacters(in: .whitespacesAndNewlines),
+                dueDate: duePreset.resolveDate(customDate: customDueDate)
+            )
+            dismiss()
+        }
+    }
+}
+
+private struct CaptureSheetHeader: View {
+    let title: String
+    let subtitle: String
+    let theme: IslandTheme
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(title)
+                .font(.title2.weight(.semibold))
+            Text(subtitle)
+                .foregroundStyle(theme.foregroundColor.opacity(0.72))
+        }
+    }
+}
+
+private struct CaptureFieldSection<Content: View>: View {
+    let title: String
+    let theme: IslandTheme
+    let content: Content
+
+    init(
+        title: String,
+        theme: IslandTheme,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.title = title
+        self.theme = theme
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(title)
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(theme.foregroundColor.opacity(0.72))
+            content
+        }
+    }
+}
+
+private struct LinkCaptureActions: View {
+    let saveLink: () -> Void
+    let pasteClipboard: () -> Void
+    let theme: IslandTheme
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Button("Paste Clipboard", action: pasteClipboard)
+                .liquidGlassButtonStyle()
+
+            Spacer()
+
+            Button("Save Link", action: saveLink)
+                .liquidGlassButtonStyle(prominent: true)
+        }
+    }
+}
+
+private struct ReminderDueSection: View {
+    @Binding var duePreset: ReminderDuePreset
+    @Binding var customDueDate: Date
+    let theme: IslandTheme
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            Text("Due")
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(theme.foregroundColor.opacity(0.72))
+
+            Picker("Due preset", selection: $duePreset) {
+                ForEach(ReminderDuePreset.allCases, id: \.self) { preset in
+                    Text(preset.label).tag(preset)
+                }
+            }
+            .pickerStyle(.segmented)
+
+            if duePreset == .pickDate {
+                DatePicker(
+                    "Custom Date",
+                    selection: $customDueDate,
+                    displayedComponents: [.date, .hourAndMinute]
+                )
+                .datePickerStyle(.compact)
+            }
+        }
+    }
+}
+
+private struct ReminderSyncCard: View {
+    let canMirror: Bool
+    let statusLabel: String
+    let theme: IslandTheme
+
+    var body: some View {
+        HStack {
+            Label(
+                "Reminder Sync",
+                systemImage: canMirror ? "checkmark.icloud" : "icloud.slash"
+            )
+            .foregroundStyle(theme.foregroundColor.opacity(0.8))
+
+            Spacer()
+
+            Text(statusLabel)
+                .font(.caption.weight(.semibold))
+                .foregroundStyle(canMirror ? theme.accentColor : theme.foregroundColor.opacity(0.72))
+        }
+        .padding(16)
+        .liquidGlassCard(theme: theme, cornerRadius: 22)
+    }
+}
+
+private struct ReminderCaptureActions: View {
+    let canSave: Bool
+    let saveReminder: () -> Void
+    let theme: IslandTheme
+
+    var body: some View {
+        HStack(spacing: 12) {
+            Spacer()
+
+            Button("Save Reminder", action: saveReminder)
+                .liquidGlassButtonStyle(prominent: true)
+                .disabled(!canSave)
+        }
     }
 }
 
@@ -311,9 +457,11 @@ private enum ReminderDuePreset: CaseIterable {
             if let tonight, tonight > now {
                 return tonight
             }
-            return calendar.date(byAdding: .day, value: 1, to: calendar.startOfDay(for: now))?.addingTimeInterval(20 * 60 * 60)
+            return calendar.date(byAdding: .day, value: 1, to: calendar.startOfDay(for: now))?
+                .addingTimeInterval(20 * 60 * 60)
         case .tomorrow:
-            return calendar.date(byAdding: .day, value: 1, to: calendar.startOfDay(for: now))?.addingTimeInterval(9 * 60 * 60)
+            return calendar.date(byAdding: .day, value: 1, to: calendar.startOfDay(for: now))?
+                .addingTimeInterval(9 * 60 * 60)
         case .pickDate:
             return customDate
         }
