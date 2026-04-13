@@ -5,8 +5,8 @@
 //  Created by Richard Kunkli on 2024. 10. 17..
 //
 
-import SwiftUI
 import Defaults
+import SwiftUI
 
 private let availableDirectories = FileManager
     .default
@@ -191,11 +191,15 @@ extension Defaults.Keys {
     
     // Helper to determine the default media controller based on NowPlaying deprecation status
     static var defaultMediaController: MediaControllerType {
+        #if os(macOS)
         if MusicManager.shared.isNowPlayingDeprecated {
             return .appleMusic
         } else {
             return .nowPlaying
         }
+        #else
+        return .appleMusic
+        #endif
     }
 
     static let didClearLegacyURLCacheV1 = Key<Bool>("didClearLegacyURLCache_v1", default: false)
